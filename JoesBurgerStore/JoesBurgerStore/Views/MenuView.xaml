@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:local="clr-namespace:JoesBurgerStore;assembly=JoesBurgerStore"
+                       xmlns:customRenderers="clr-namespace:JoesBurgerStore.CustomRenderers;assembly=JoesBurgerStore"
+                       x:Class="JoesBurgerStore.Views.MenuView">
+  <Grid VerticalOptions="StartAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="100"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Label Text="Welcome to Joe's Burger Store" FontSize="25"></Label>
+    <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1">
+      <customRenderers:RoundButton Text="Order burgers" Command="{Binding OrderBurgersCommand}"></customRenderers:RoundButton>
+      <!--<Button Text="Order burgers" Command="{Binding OrderBurgersCommand}"></Button>-->
+      <Button Text="View Cart" Command="{Binding ViewCartCommand}"></Button>
+      <Button Text="Take picture" Command="{Binding TakePictureCommand}"></Button>
+      <Button Text="View map" Command="{Binding ViewMapCommand}"></Button>
+      <Button Text="About Joe's Burgers" Command="{Binding AboutCommand}"></Button>
+    </StackLayout>
+  </Grid>
+</ContentPage>

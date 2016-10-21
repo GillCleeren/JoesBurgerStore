@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:local="clr-namespace:JoesBurgerStore;assembly=JoesBurgerStore"
+                       xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                       xmlns:converter="clr-namespace:JoesBurgerStore.Converters;assembly=JoesBurgerStore"
+                       xmlns:utility="clr-namespace:JoesBurgerStore.Utility;assembly=JoesBurgerStore"
+                       x:Class="JoesBurgerStore.Views.ShowMapView">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converter:MapRegionToMapSpanConverter x:Key="LocalMapRegionToMapSpanConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <StackLayout>
+    <!--<maps:Map WidthRequest="500" HeightRequest="500" VerticalOptions="FillAndExpand" IsShowingUser="True" 
+              VisibleRegion="{Binding MapRegion, Converter={StaticResource LocalMapRegionToMapSpanConverter}}">
+    </maps:Map>-->
+    
+    <maps:Map MapType="Street" VerticalOptions="FillAndExpand" >
+      <maps:Map.Behaviors>
+        <utility:MapBehavior ItemsSource="{Binding Items}" />
+      </maps:Map.Behaviors>
+    </maps:Map>
+
+  </StackLayout>
+</ContentPage>

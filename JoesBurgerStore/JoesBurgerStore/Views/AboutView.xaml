@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JoesBurgerStore.Views.AboutView"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+  <StackLayout>
+    <Label Text="The Joe's Burger Store App!" FontSize="25"></Label>
+    <Label Text="{Binding General}"></Label>
+    <Label Text="{Binding Copyright}"></Label>
+    <!--<controls:HyperLinkLabel Text="{Binding MoreInfo}" NavigateUri="{Binding Link}"></controls:HyperLinkLabel>-->
+    <Button Text="{Binding MoreInfo}" Command="{Binding MoreInfoCommand}" BorderWidth="0" />
+  </StackLayout>
+</ContentPage>

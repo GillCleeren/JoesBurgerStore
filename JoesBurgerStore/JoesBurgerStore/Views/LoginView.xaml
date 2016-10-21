@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JoesBurgerStore.Views.LoginView">
+  <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+    <Label Text="Welcome to Joe's Burger Store" FontSize="25"></Label>
+    <Entry StyleId="UserId" Text="{Binding Path=Username}" Placeholder="Username" />
+    <Entry StyleId="PasswordId" Text="{Binding Path=Password}" Placeholder="Password" IsPassword="true" />
+    <Grid HorizontalOptions="Center">
+      <Button x:Name="loginButton" Command="{Binding LoginCommand}" Text="Login" Grid.Row="0" Grid.Column="0"/>
+      <Button x:Name="helpButton" Command="{Binding HelpCommand}" Text="Help" Grid.Row="0" Grid.Column="1" />
+    </Grid>
+  </StackLayout>
+</ContentPage>

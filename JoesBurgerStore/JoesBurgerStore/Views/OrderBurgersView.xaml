@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utility="clr-namespace:JoesBurgerStore.Utility;assembly=JoesBurgerStore"
+             x:Class="JoesBurgerStore.Views.OrderBurgersView">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <utility:SelectedItemEventArgsToSelectedItemConverter x:Key="localSelectedItemEventArgsToSelectedItemConverter"></utility:SelectedItemEventArgsToSelectedItemConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout>
+    <Label Text="Select your burgers!" FontSize="25"></Label>
+    <ListView x:Name="listView" RowHeight="100" IsGroupingEnabled="true" ItemsSource="{Binding BurgerGroups}">
+      <ListView.Behaviors>
+        <utility:EventToCommandBehavior EventName="ItemSelected" Command="{Binding BurgerSelectedCommand}" Converter="{StaticResource localSelectedItemEventArgsToSelectedItemConverter}" />
+      </ListView.Behaviors>
+      <ListView.GroupHeaderTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+              <Label Text="{Binding Title}" VerticalTextAlignment="Center" FontSize="22" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.GroupHeaderTemplate>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell >
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+              <Image WidthRequest="100" HeightRequest="100" Source="{Binding ImagePath}" />
+              <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                <Label Text="{Binding Name}" FontSize="20" VerticalTextAlignment="Center" />
+                <Label Text="{Binding ShortDescription}" FontSize="16" VerticalTextAlignment="Center"  />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+          <!--Sample with ImageCell-->
+          <!--<ImageCell Text="{Binding Name}" Detail="{Binding ShortDescription}" ImageSource="{Binding ImagePath}" />-->
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+
+</ContentPage>
